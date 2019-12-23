@@ -16,12 +16,30 @@ services:
     command: -url=jdbc:postgresql://db/${POSTGRES_DB} -user=${POSTGRES_USER} -password=${POSTGRES_PASSWORD} -n -locations=filesystem:/deploy/OpenCue-${OPENCUE_RELEASE}/cuebot/src/main/resources/conf/ddl/postgres/migrations migrate
     restart: "no"
 
+  demo_data:
+    image: postgres:10
+    volumes:
+      - ./deploy:/deploy
+    depends_on:
+      - db
+      - flyway
+    environment:
+      - PGHOST=db
+      - PGUSER=${POSTGRES_USER}
+      - PGDATABASE=${POSTGRES_DB}
+      - PGPASSWORD=${POSTGRES_PASSWORD}
+      - OPENCUE_RELEASE=${OPENCUE_RELEASE}
+
+    entrypoint: /deploy/demo_data.sh
+    restart: "no"
+
   cuebot:
     image: opencue/cuebot:0.3.6
     restart: always
     depends_on:
       - db
       - flyway
+      - demo_data
     ports:
       - 8443:8443
     command: --datasource.cue-data-source.jdbc-url=jdbc:postgresql://db/${POSTGRES_DB} --datasource.cue-data-source.username=${POSTGRES_USER} --datasource.cue-data-source.password=${POSTGRES_PASSWORD}
