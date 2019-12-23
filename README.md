@@ -35,6 +35,6 @@ The `docker-compose` command and `getSources.sh` script uses the `.env` file for
 
 # Tools #
 
-To build the virtualenv for the OpenCue tools run the `getTools.sh` inside the tools directory. This will create the `venv` directory with the OpenCue tools.
+To build the virtualenv for the OpenCue tools run the `getTools.sh` inside the tools directory. This will create the `opencue-{OPENCUE_VERSION}` directory with the OpenCue tools.
 
 This requires internet access (using `pip` and `curl`) and can be done on a different machine, although you might want to keep the same full path on remote and local machine.
