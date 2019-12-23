@@ -23,7 +23,6 @@ services:
       - db
       - flyway
     ports:
-      - 6080:8080
       - 8443:8443
     command: --datasource.cue-data-source.jdbc-url=jdbc:postgresql://db/${POSTGRES_DB} --datasource.cue-data-source.username=${POSTGRES_USER} --datasource.cue-data-source.password=${POSTGRES_PASSWORD}
 
