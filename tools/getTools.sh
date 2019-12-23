@@ -10,10 +10,11 @@ source .env
 virtualenv opencue-${OPENCUE_RELEASE} # If you previously created a virtualenv, skip this step.
 source opencue-${OPENCUE_RELEASE}/bin/activate
 
-for package in pycue-${OPENCUE_RELEASE}-all.tar.gz pyoutline-${OPENCUE_RELEASE}-all.tar.gz cueadmin-${OPENCUE_RELEASE}-all.tar.gz cuegui-${OPENCUE_RELEASE}-all.tar.gz
+for package in pycue pyoutline cueadmin cuegui cuesubmit rqd
 do
-    curl -OL https://github.com/AcademySoftwareFoundation/OpenCue/releases/download/${OPENCUE_RELEASE}/$package
-    export TAR=$package
+    
+    curl -OL https://github.com/AcademySoftwareFoundation/OpenCue/releases/download/${OPENCUE_RELEASE}/$package-${OPENCUE_RELEASE}-all.tar.gz
+    export TAR=$package-${OPENCUE_RELEASE}-all.tar.gz
     export DIR=$(basename "$TAR" .tar.gz)
     tar xvzf "$TAR"
     cd "$DIR"
