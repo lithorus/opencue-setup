@@ -1,1 +1,3 @@
-deploy
+deploy/OpenCue-*
+deploy/*.tar.gz
+
