@@ -1,0 +1,31 @@
+version: "3.0"
+
+services:
+  db:
+    image: postgres:10
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  flyway:
+    image: flyway/flyway
+    volumes:
+      - ./deploy:/deploy
+    depends_on:
+      - db
+    command: -url=jdbc:postgresql://${DB_HOST}/${DB_NAME} -user=${DB_USER} -n -locations=filesystem:/deploy/OpenCue-${OPENCUE_RELEASE}/cuebot/src/main/resources/conf/ddl/postgres/migrations migrate
+    restart: "no"
+
+  cuebot:
+    image: opencue/cuebot:0.3.6
+    restart: always
+    depends_on:
+      - db
+      - flyway
+    ports:
+      - 6080:8080
+      - 8443:8443
+    command: --datasource.cue-data-source.jdbc-url=jdbc:postgresql://${DB_HOST}/${DB_NAME} --datasource.cue-data-source.username=${DB_USER}
+
+volumes:
+  pgdata:
