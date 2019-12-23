@@ -7,8 +7,8 @@ source .env
 #curl -OL https://github.com/AcademySoftwareFoundation/OpenCue/releases/download/${OPENCUE_RELEASE}/cueadmin-${OPENCUE_RELEASE}-all.tar.gz
 #curl -OL https://github.com/AcademySoftwareFoundation/OpenCue/releases/download/${OPENCUE_RELEASE}/cuegui-${OPENCUE_RELEASE}-all.tar.gz
 
-virtualenv venv # If you previously created a virtualenv, skip this step.
-source venv/bin/activate
+virtualenv opencue-${OPENCUE_RELEASE} # If you previously created a virtualenv, skip this step.
+source opencue-${OPENCUE_RELEASE}/bin/activate
 
 for package in pycue-${OPENCUE_RELEASE}-all.tar.gz pyoutline-${OPENCUE_RELEASE}-all.tar.gz cueadmin-${OPENCUE_RELEASE}-all.tar.gz cuegui-${OPENCUE_RELEASE}-all.tar.gz
 do
