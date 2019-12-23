@@ -4,7 +4,7 @@ This is an attempt to make the cuebot setup a little easier and using more of th
 
 Clone the repo in a directory of you choosing or download the repo.
 
-Quick Guide :
+## Quick Guide ##
 
 Inside the cloned/unpacked directory, bring up the `db` service first
 ```bash
@@ -26,3 +26,6 @@ Bring up the cuebot
 docker-compose up -d cuebot
 ```
 
+## Additional info ##
+
+The `docker-compose` command and `getSources.sh` script uses the `.env` file for version info and DB details
