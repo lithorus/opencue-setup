@@ -2,11 +2,11 @@
 
 This is an attempt to make the cuebot setup a little easier and using more of the features of docker-compose.
 
-Clone the repo in a directory of you choosing or download the repo.
+Clone the repo in a directory of you choosing or download and extract the repo.
 
 ## Quick Guide ##
 
-Inside the cloned/unpacked directory, bring up the `db` service first
+Inside the `cuebot` directory, bring up the `db` service first
 ```bash
 docker-compose up -d db
 ```
