@@ -45,6 +45,7 @@ To activate the virtuelenv run
 ```bash
 source ./activate./sh
 ```
+This needs to be done (only once per terminal session) before using any of the below tools.
 
 ## CueGUI ##
 
