@@ -4,6 +4,8 @@ This is an attempt to make the cuebot setup a little easier and using more of th
 
 Clone the repo in a directory of you choosing or download and extract the repo.
 
+# CueBot #
+
 ## Quick Guide ##
 
 Inside the `cuebot` directory, bring up the `db` service first
