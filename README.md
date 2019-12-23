@@ -31,3 +31,10 @@ docker-compose up -d cuebot
 ## Additional info ##
 
 The `docker-compose` command and `getSources.sh` script uses the `.env` file for version info and DB details
+
+
+# Tools #
+
+To build the virtualenv for the OpenCue tools run the `getTools.sh` inside the tools directory. This will create the `venv` directory with the OpenCue tools.
+
+This requires internet access (using `pip` and `curl`) and can be done on a different machine, although you might want to keep the same full path on remote and local machine.
