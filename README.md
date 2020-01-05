@@ -59,3 +59,9 @@ CUEBOT_HOSTS=$HOSTS cuegui
 CUEBOT_HOSTS=$HOSTS cueadmin
 ```
 
+## Render Node (rqd) ##
+
+```bash
+CUEBOT_HOSTS=$HOSTS rqd
+```
+If you are running RQD on the same host as the docker setup, it will register on the server but **might** not be able to run any jobs. This is because it will register on the cuebot as  it's hostname which usually resolves to `127.0.1.1` from `/etc/hosts`. The underlaying docker network cannot connect to the docker hosts real localhost.
