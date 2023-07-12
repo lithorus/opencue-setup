@@ -36,7 +36,7 @@ services:
     restart: "no"
 
   cuebot:
-    image: opencue/cuebot:0.3.6
+    image: opencue/cuebot:${OPENCUE_RELEASE}
     restart: always
     depends_on:
       - db
